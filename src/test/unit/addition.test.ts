@@ -20,4 +20,8 @@ describe('string calculator : addition', () => {
         assert.strictEqual(addition('//;\n1;2'), 3);
         assert.strictEqual(addition('//%\n1%2%3%4%5'), 15);
     })
+    it('should throw an error if negative numbers are present', () => {
+        assert.throws(() => addition('1,-2,-3'), new Error('negative numbers not allowed: -2, -3'));
+        assert.throws(() => addition('1,\n,-2,-3,\n,4,-5'), new Error('negative numbers not allowed: -2, -3, -5'));
+    })
 })
