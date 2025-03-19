@@ -16,4 +16,8 @@ describe('string calculator : addition', () => {
         assert.strictEqual(addition('1\n2,3'), 6);
         assert.strictEqual(addition('1\n4\n6,7, 8\n9'), 35);
     })
+    it('should handle different delimiters', () => {
+        assert.strictEqual(addition('//;\n1;2'), 3);
+        assert.strictEqual(addition('//%\n1%2%3%4%5'), 15);
+    })
 })
