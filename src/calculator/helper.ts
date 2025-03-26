@@ -17,3 +17,18 @@ export function checkDifferentDeLimiters(input: string): string{
     }
     return input
 }
+
+export function checkForCharacters(input: string): string{
+    const nums = input.split(',')
+    let chars:string[] = []
+    nums.forEach((char) => {
+        char = char.trim();
+        if(isNaN(parseInt(char))){
+            chars.push(char)
+        }
+    })
+    if(chars.length){
+        throw new Error(`characters are not allowed: ${chars.join(',')}`)
+    }
+    return input
+}

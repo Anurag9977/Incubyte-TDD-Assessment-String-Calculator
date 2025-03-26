@@ -1,4 +1,4 @@
-import { checkDifferentDeLimiters, checkNewLineCharacter } from "./helper";
+import { checkDifferentDeLimiters, checkForCharacters, checkNewLineCharacter } from "./helper";
 
 export function addition(input : string):number{
     //Check if the string is empty
@@ -11,6 +11,9 @@ export function addition(input : string):number{
 
     //Check if the string contains new line character(s)
     input = checkNewLineCharacter(input);
+
+    //Check if there are characters in the input
+    input = checkForCharacters(input);
 
     //Split the string into numbers
     const numbers = input.split(',')

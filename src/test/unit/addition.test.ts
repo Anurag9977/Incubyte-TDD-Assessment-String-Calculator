@@ -22,6 +22,9 @@ describe('string calculator : addition', () => {
     })
     it('should throw an error if negative numbers are present', () => {
         assert.throws(() => addition('1,-2,-3'), new Error('negative numbers not allowed: -2, -3'));
-        assert.throws(() => addition('1,\n,-2,-3,\n,4,-5'), new Error('negative numbers not allowed: -2, -3, -5'));
+        assert.throws(() => addition('1\n-2,-3\n4,-5'), new Error('negative numbers not allowed: -2, -3, -5'));
+    })
+    it('should throw an error if there are characters in the string', () => {
+        assert.throws(() => addition('1,2,a,4,b,6'), Error('characters are not allowed: a,b'));
     })
 })
